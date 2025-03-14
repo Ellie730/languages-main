@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% block title %}
+mainpage
+{% endblock %}
+
+{% block body %}
+
+<meta id="user_id" data-name="{{session[user_id]}}">
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>author</th>
+            <th>date</th>
+            <th>medium</th>
+            <th>genre</th>
+            <th>progress</th>
+            <th>weighted progress</th>
+            <th>size</th>
+            <th>edit deck</th>
+            <th>view contents</th>
+            <th>change order</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in display %}
+        <tr>
+            <meta id="deck_id" data-id="{{row.0}}" data-state>
+            <td>{{ row.0 }}</td>
+            <td>{{ row.2 }}</td>
+            <td>{{ row.3 }} </td>
+            <td>{{ row.4 }}</td>
+            <td>{{ row.5 }}</td>
+            <td>{{ row.6 }}</td>
+            <td>{{ row.12 }}</td>
+            <td>{{ row.14 }}</td>
+            <td>{{ row.7 }}</td>
+            </td>
+            <td>
+                <form action="edit_deck" method="post">
+                    <input name="deck_id" type="hidden" value="{{ row.0 }}">
+                    <button type="submit">Edit Deck</button>
+                </form>
+            </td>
+            <td>
+                <form action="view_deck" method="post">
+                    <input name="deck" type="hidden" value="{{ row.0 }}">
+                    <button type="submit">View</button>
+                </form>     
+            </td>
+            <td>
+                {% if display.index(row) > 0 %}
+                    <div>
+                        <form action="/reorder" method="post">
+                            <input name="deck" type="hidden" value="{{ row.0 }}">
+                            <input name="direction" type="hidden" value="-">
+                            <button type="submit">&#x2191</button>
+                        </form>
+                        <form action="/reorder" method="post">
+                            <input name="deck" type="hidden" value="{{ row.0 }}">
+                            <input name="direction" type="hidden" value="first">
+                            <button type="submit">&#x219F</button>
+                        </form>
+                    </div>
+                {% endif %}
+                {% if display.index(row) < count %}
+                    <div>
+                        <form action="/reorder" method="post">
+                            <input name="deck" type="hidden" value="{{ row.0 }}">
+                            <input name="direction" type="hidden" value="+">
+                            <button type="submit">&#x2193</button>
+                        </form>
+                        <form action="/reorder" method="post">
+                            <input name="deck" type="hidden" value="{{ row.0 }}">
+                            <input name="direction" type="hidden" value="last">
+                            <button type="submit">&#x21A1</button>
+                        </form>
+                    </div>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>    
+</table>
+<div>
+    This application allows you to input a text in one of the supported languages, and returns the list of distinct words to you as a flashcard deck. You can create your own reverses for these flashcards or use preexisting ones from other users.
+</div>
+
+{% endblock %}

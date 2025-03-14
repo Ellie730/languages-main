@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block title %}
+deck
+{% endblock %}
+
+{% block body %}
+
+{% for card in cards %}
+<div class="card">
+    <h3>{{card.2}}</h3>
+    <div>
+        {{card.20}}
+    </div>
+    <div>
+        {{card.23}}
+    </div>
+    <div>
+        {{card.21}}
+    </div>
+    <div id="date"></div>
+    <table>
+        <thead>
+            <tr>
+                <th>easy</th>
+                <th>good</th>
+                <th>ok</th>
+                <th>some</th>
+                <th>none</th>
+                <th>total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ card.12 }}</td>
+                <td>{{ card.11 }}</td>
+                <td>{{ card.10 }}</td>
+                <td>{{ card.9 }}</td>
+                <td>{{ card.8 }}</td>
+                <td>{{ card.7 }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <meta id="my-data" data-date="{{ card.5 }}">
+    <script>
+        var timestamp = $('#my-data').data();
+        const d = new Date(timestamp);
+        document.getElementById("date").innerHTML = d.toDateString();
+    </script>
+</div>
+{% endfor %}
+
+{% if page != 0 %}
+
+<form action="/my_deck">
+    <input name="page" type="hidden" value="{{ page - 1 }}">
+    <button type="submit">back</button>
+</form>
+
+{% endif %}
+
+{% if page < pages %}
+
+<form action="/my_deck">
+    <input name="page" type="hidden" value="{{ page + 1 }}">
+    <button type="submit">next</button>
+</form>
+{% endif %}
+
+
+
+{% endblock %}

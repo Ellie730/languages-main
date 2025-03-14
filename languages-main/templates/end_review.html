@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+end review
+
+{% endblock %}
+
+{% block body %}
+
+<h2>
+    Session Complete
+</h2>
+<div>
+    You have reviewed {{ count }} cards and introduced {{ new }} new cards in this session!!!
+</div>
+<div>
+    <a href="/"><button>Return to main page</button></a>
+    <button onclick="document.getElementById('cs').style.display='block'">custom study</button>
+</div>
+<div id="cs" style="display:none">
+    <form action="/custom_study" method="post">
+        <input type="number" name="number" placeholder="number of extra cards">
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+{% endblock %}

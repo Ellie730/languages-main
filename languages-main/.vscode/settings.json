@@ -1,0 +1,16 @@
+{
+    "python.analysis.extraPaths": [
+        "./italian_dictionary-master/italian_dictionary-master/italian_dictionary",
+        "./spaCy"
+    ],
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "languagecards.db",
+            "name": "con"
+        }
+    ],
+    "sqltools.useNodeRuntime": true,
+    "python.analysis.autoImportCompletions": true
+}

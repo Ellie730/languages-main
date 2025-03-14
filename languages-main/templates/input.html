@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    
+input
+
+{% endblock %}
+
+{% block body %}
+
+<form action = "/input" method = "post">
+    <div>
+        <input input autocomplete ="off" autofocus type = text id = "text" name = "input">
+    </div>
+        <input id="demo" onclick="document.getElementById('demo').style.display='none'" type = "submit" value = "Submit">
+    </div>
+</form>
+
+{% endblock %}

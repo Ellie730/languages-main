@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+search decks
+
+{% endblock %}
+
+{% block body %}
+
+<h2> search decks</h2>
+
+<h3> </h3>
+
+<form action="/search_decks" method="post">
+    <input autocomplete="off" autofocus type="number" name="id" placeholder="id">
+    <input autocomplete="off" autofocus type="text" name="name" placeholder="name">
+    <input autocomplete="off" autofocus type="text" name="author" placeholder="author">
+    <input autocomplete="off" autofocus type="text" name="medium" placeholder="medium">
+    <input autocomplete="off" autofocus type="text" name="genre" placeholder="genre">
+    <input autocomplete="off" autofocus type="text" name="date" placeholder="date of publication">
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock %}

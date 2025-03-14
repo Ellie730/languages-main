@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+new deck
+
+{% endblock %}
+
+{% block body %}
+<form action = "/new_deck" method = "post">
+    <div>
+        <input type="radio" id="Finnish" name="language" value="Finnish">
+        <label for="Finnish">Finnish</label>
+        <input type="radio" id="French" name="language" value="French">
+        <label for="French">French</label>
+        <input type="radio" id="German" name="language" value="German">
+        <label for="German">German</label>
+        <input type = "radio" id = "Italian" name = "language" value = "Italian">
+        <label for = "Italian">Italian</label><br>
+        <input type = "radio" id = "Spanish" name = "language" value = "Spanish">
+        <label for = "Spanish">Spanish</label><br>
+
+    </div>
+    <div>
+        <input name="name" placeholder="name" type="text">
+    </div>
+    <div>
+        <input name="medium" placeholder="medium" type="text">
+    </div>
+    <div>
+        <input name="genre" placeholder="genre" type="text">
+    </div>
+    <div>
+        <input name="author" placeholder="author" type="text">
+    </div>
+    <div>
+        <input name="date" placeholder="date" type="text">
+    </div>
+    <div>
+        <input type="submit" value="submit">
+    </div>
+</form>
+{% endblock %}

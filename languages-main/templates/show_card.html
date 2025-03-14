@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+show_card
+
+{% endblock %}
+
+{% block body %}
+
+<h2>
+    {{card.0.14}}
+</h2>
+<div>
+    {{card.0.15}}
+</div>
+<div>
+    {{card.0.20}}
+</div>
+<div>
+    {{card.0.16}}
+</div>
+<div>
+    {{card.0.17}}
+</div>
+
+<form action="/show_card" method="post">
+    <input type="hidden" name = "multiplier" value = 0>
+    <button type="submit">None</button>
+</form>
+<form action="/show_card" method="post">
+    <input type="hidden" name = "multiplier" value = 0.05>
+    <button type="submit">Some</button>
+</form>
+<form action="/show_card" method="post">
+    <input type="hidden" name = "multiplier" value = 1>
+    <button type="submit">Okay</button>
+</form>
+<form action="/show_card" method="post">
+    <input type="hidden" name = "multiplier" value = 2>
+    <button type="submit">Good</button>
+</form>
+<form action="/show_card" method="post">
+    <input type="hidden" name = "multiplier" value = 3>
+    <button type="submit">Easy</button>
+</form>
+
+{% endblock %}

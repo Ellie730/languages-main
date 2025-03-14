@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    
+login
+
+{% endblock %}
+
+{% block body %}
+
+<form action="/settings" method="post">
+    <div>
+        Card Order
+        <input type="radio" name="card_order" value="words.id">
+        <label for="id">Order Introduced</label>
+        <input type="radio" name="card_order" value="deck_contents.frequency DESC">
+        <label for="deck_contents.frequency DESC">Frequency within deck</label>
+        <input type="radio" name="card_order" value="user_progress.frequency DESC">
+        <label for="user_progress.frequency DESC">Frequency across decks</label>
+    </div>
+    <div>
+        <input type="number" name="new_cards" placeholder="New cards">
+    </div>
+    <div>
+        <input type="submit" value="Submit">
+    </div>
+</form>
+
+{% endblock %}

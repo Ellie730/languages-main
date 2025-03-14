@@ -1,0 +1,30 @@
+.card {
+    border-style: solid;
+    border-color:white;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.nobr { display: inline; }
+
+body { 
+    background-color: gray;
+    background-size: cover;
+ }
+
+button { border-radius: 5px;}
+
+li { padding: 15px;}
+
+table {
+    width:100%;
+}
+thead {
+    background-color: #707070;
+    color: white;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+th, td { margin-left: 5px;
+margin-right: 5px;}

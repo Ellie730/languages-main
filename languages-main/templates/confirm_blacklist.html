@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+Blacklist
+
+{% endblock %}
+
+{% block body %}
+
+<h2>
+    Warning
+</h2>
+<div>
+    Proceeding will remove all {{ count }} flashcard reverses from your decks, are you sure you wish to blacklist {{ creator }} ?
+</div>
+<div class="nobr">
+    <a href="/review"><button>return to review</button></a>
+    <form action="/blacklist" method="post">
+        <input type="hidden" name="confirmed" value="0">
+        <input type="submit" value="Continue">
+    </form>
+</div>
+
+{% endblock %}

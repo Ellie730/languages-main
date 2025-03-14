@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+new_alternate
+
+{% endblock %}
+
+{% block body %}
+
+<h2> Create custom card</h2>
+
+<h3> {{word}}</h3>
+
+<form action="/new_alternate" method="post">
+    <input type="text" name="definition" placeholder="definition">
+    <input type="text" name="frequency" placeholder="frequency">
+    <input type="text" name="example" placeholder="example">
+    <input type="text" name="part" placeholder="part of speech">
+    {% if session["state"] == 'new' %}
+    <div>
+        <input type="radio" name="interval" value="300" id="none">
+        <label for="none">5 minutes</label>
+        <input type="radio" name="interval" value="1000" id="some">
+        <label for="some">15 minutes</label>
+        <input type="radio" name="interval" value="86400" id="ok">
+        <label for="ok">1 day</label>
+        <input type="radio" name="interval" value="864000" id="good">
+        <label for="good">10 days</label>
+        <input type="radio" name="interval" value="2592000" id="easy">
+        <label for="easy">1 month</label>
+        <input type="radio" name="interval" value="known" id="known">
+        <label for="known">Known</label>
+        <input type="radio" name="interval" value="blacklist" id="blacklist">
+        <label for="blacklist">Blacklist</label>
+    </div>
+    {% endif %}
+    <button type = "submit">Submit</button>
+</form>
+
+{% endblock %}

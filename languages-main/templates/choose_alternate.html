@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+choose alternate
+{% endblock %}
+
+{% block body %}
+
+<div>
+    {{ card }}
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>definition</th>
+            <th>part</th>
+            <th>example</th>
+            <th>frequency</th>
+            <th>creator</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for alternate in alternates %}
+        <tr>
+            <td>
+                <form action="/choose_alternate" method="post">
+                    <input type ="hidden" name="choice" value="{{ alternate.1 }}">
+                    <button type="submit">{{ alternate.2 }}</button>
+                </form>
+            </td>
+            <td>{{ alternate.3 }}</td>
+            <td>{{ alternate.4 }}</td>
+            <td>{{ alternate.5 }}</td>
+            <td>{{ alternate.6 }} 
+                <form action="/blacklist" method="post">
+                    <input type="hidden" name="creator" value="{{ alternate.6 }}">
+                    <button type="submit">BLACKLIST</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+

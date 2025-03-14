@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+found
+
+{% endblock %}
+
+{% block body %}
+
+{% for deck in matching %}
+
+<div>
+    {{deck.0}}
+    {{deck.2}}
+    {{deck.6}}
+    {{deck.5}}
+    {{deck.3}}
+    {{deck.4}}
+    <form action="/add_deck" method="post">
+        <input type="hidden" name="deck" value="{{ deck.0 }}">
+        <input type="submit" value="Add Deck">
+    </form>
+</div>
+
+{% endfor %}
+
+{% endblock %}
